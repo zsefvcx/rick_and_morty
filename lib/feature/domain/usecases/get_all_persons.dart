@@ -12,7 +12,7 @@ class GetAllPersons extends UseCase<PersonEntity, PagePersonParams> {
   ///можно явно не указыать метод call
   ///getAllPersons.call(page: 1); => getAllPersons(page: 1);
   @override
-  Future<(Failure, List<PersonEntity>)> call(
+  Future<(Failure?, List<PersonEntity>?)> call(
       {required PagePersonParams params}) async {
     return await personRepository.getAllPersons(params.page);
   }

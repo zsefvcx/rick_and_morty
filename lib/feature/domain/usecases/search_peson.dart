@@ -12,7 +12,7 @@ class SearchPerson extends UseCase<PersonEntity, SearchPersonParams> {
   ///можно явно не указыать метод call
   ///searchPerson.call(page: 1); => searchPerson(page: 1);
   @override
-  Future<(Failure, List<PersonEntity>)> call(
+  Future<(Failure?, List<PersonEntity>?)> call(
       {required SearchPersonParams params}) async {
     return await personRepository.searchPerson(params.query);
   }
