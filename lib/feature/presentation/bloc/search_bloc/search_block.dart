@@ -8,10 +8,10 @@ const serverFailureMessage = 'Server Failure';
 const cacheFailureMessage = 'Cache Failure';
 const unexpectedErrorMessage = 'Unexpected Error';
 
-class PersonSrechBloc extends Bloc<PersonSearchEvent, PersonSearchState> {
+class PersonSeachBloc extends Bloc<PersonSearchEvent, PersonSearchState> {
   final SearchPerson searchPerson;
 
-  PersonSrechBloc({required this.searchPerson}) : super(PersonEmty());
+  PersonSeachBloc({required this.searchPerson}) : super(PersonEmty());
 
   Stream<PersonSearchState> mapEventToState(PersonSearchEvent event) async* {
     if (event is SearchPersons) {

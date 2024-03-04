@@ -17,10 +17,10 @@ abstract class PersonRemouteDataSource {
   Future<List<PersonModel>> searchPerson(String query);
 }
 
-class PersonPemouteDataSourceImpl implements PersonRemouteDataSource {
+class PersonRemouteDataSourceImpl implements PersonRemouteDataSource {
   final http.Client client;
 
-  PersonPemouteDataSourceImpl({required this.client});
+  PersonRemouteDataSourceImpl({required this.client});
 
   @override
   Future<List<PersonModel>> getAllPersons(int page) => _getPersonFromUrl(

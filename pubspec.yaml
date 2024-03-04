@@ -21,6 +21,8 @@ dependencies:
   shared_preferences: ^2.2.2
   internet_connection_checker: ^1.0.0+1
   flutter_bloc: ^8.1.4
+  #Инекция зависостей вне контекста дерева
+  get_it: ^7.6.7
 
 dev_dependencies:
   flutter_test:
