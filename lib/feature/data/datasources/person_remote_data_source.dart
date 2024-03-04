@@ -40,7 +40,7 @@ class PersonPemouteDataSourceImpl implements PersonRemouteDataSource {
           .map((e) => PersonModel.fromJson(e))
           .toList();
     } else {
-      throw ServerExeprion();
+      throw ServerExeption();
     }
   }
 }

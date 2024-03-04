@@ -11,7 +11,7 @@ abstract class PersonLocaleDataSource {
   ///
   /// Throw [CacheExeption] if no cached data in present.
 
-  Future<List<PersonModel>> getLastPersonsFromCache(int page);
+  Future<List<PersonModel>> getLastPersonsFromCache();
   Future<void> personToCache(List<PersonModel> persons);
 }
 
@@ -32,12 +32,12 @@ class PersonLocaleDataSourceImpl implements PersonLocaleDataSource {
       dev.log('Person to write Cache: ${jsonPersonList.length}',
           error: false, time: DateTime.now());
     } else {
-      throw CacheExeprion();
+      throw CacheExeption();
     }
   }
 
   @override
-  Future<List<PersonModel>> getLastPersonsFromCache(int page) {
+  Future<List<PersonModel>> getLastPersonsFromCache() {
     final List<String> jsonPersonList =
         sharedPreferences.getStringList(cachedPersonList) ?? <String>[];
     if (jsonPersonList.isNotEmpty) {
@@ -45,7 +45,7 @@ class PersonLocaleDataSourceImpl implements PersonLocaleDataSource {
           .map((e) => PersonModel.fromJson(json.decode(e)))
           .toList());
     } else {
-      throw CacheExeprion();
+      throw CacheExeption();
     }
   }
 }
