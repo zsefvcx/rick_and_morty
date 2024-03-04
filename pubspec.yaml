@@ -23,6 +23,7 @@ dependencies:
   flutter_bloc: ^8.1.4
   #Инекция зависостей вне контекста дерева
   get_it: ^7.6.7
+  cached_network_image: ^3.3.1
 
 dev_dependencies:
   flutter_test:
