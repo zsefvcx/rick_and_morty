@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:rick_and_morty/core/location/location.dart';
 import 'package:rick_and_morty/feature/domain/entities/person_entity.dart';
 
 part 'person_model.g.dart';
