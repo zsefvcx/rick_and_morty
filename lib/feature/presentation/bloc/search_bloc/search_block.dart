@@ -34,7 +34,7 @@ class PersonSeachBloc extends Bloc<PersonSearchEvent, PersonSearchState> {
   }
 
   String _mapFailureToMassage(Failure failure) {
-    switch (failure.runtimeType) {
+    switch (failure) {
       case ServerFailure _:
         return serverFailureMessage;
       case CacheFailure _:

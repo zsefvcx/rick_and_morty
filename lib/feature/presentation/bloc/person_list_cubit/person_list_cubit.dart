@@ -33,7 +33,7 @@ class PersonListCubit extends Cubit<PersonState> {
     final character = failureOrPerson.$2;
     final failure = failureOrPerson.$1;
     if (failure != null) {
-      PersonError(message: _mapFailureToMassage(failure));
+      emit(PersonError(message: _mapFailureToMassage(failure)));
     } else if (character != null) {
       page++;
       final persons = (state as PersonLoading).oldPersonsList;
@@ -45,7 +45,7 @@ class PersonListCubit extends Cubit<PersonState> {
   }
 
   String _mapFailureToMassage(Failure failure) {
-    switch (failure.runtimeType) {
+    switch (failure) {
       case ServerFailure _:
         return serverFailureMessage;
       case CacheFailure _:

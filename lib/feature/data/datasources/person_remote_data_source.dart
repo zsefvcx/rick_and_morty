@@ -28,7 +28,7 @@ class PersonRemouteDataSourceImpl implements PersonRemouteDataSource {
 
   @override
   Future<List<PersonModel>> searchPerson(String query) => _getPersonFromUrl(
-      'https://rickandmortyapi.com/api/character/?name=$query');
+      'https://rickandmortyapi.com/api/chara1cter/?name=$query');
 
   Future<List<PersonModel>> _getPersonFromUrl(String url) async {
     dev.log(url, error: false, time: DateTime.now());
