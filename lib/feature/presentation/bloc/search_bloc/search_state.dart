@@ -5,7 +5,7 @@ abstract class PersonSearchState extends Equatable {
   const PersonSearchState();
 }
 
-class PersonEmty extends PersonSearchState {
+class PersonSearchEmty extends PersonSearchState {
   @override
   List<Object?> get props => [];
 }

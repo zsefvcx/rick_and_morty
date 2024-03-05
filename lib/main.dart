@@ -28,8 +28,8 @@ class MyApp extends StatelessWidget {
         BlocProvider<PersonListCubit>(
           create: (context) => sl<PersonListCubit>()..loadPerson(),
         ),
-        BlocProvider<PersonSeachBloc>(
-          create: (context) => sl<PersonSeachBloc>(),
+        BlocProvider<PersonSearchBloc>(
+          create: (context) => sl<PersonSearchBloc>(),
         ),
       ],
       child: MaterialApp(

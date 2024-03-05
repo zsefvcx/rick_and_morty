@@ -20,7 +20,7 @@ Future<void> init() async {
     () => PersonListCubit(getAllPersons: sl()),
   );
   sl.registerFactory(
-    () => PersonSeachBloc(searchPerson: sl()),
+    () => PersonSearchBloc(searchPerson: sl()),
   );
   //UseCases
   sl.registerLazySingleton(

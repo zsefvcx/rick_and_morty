@@ -5,12 +5,12 @@ const assetNoImage = 'assets/images/noimage.jpg';
 
 class PersonCacheImage extends StatelessWidget {
   final String? imageUrl;
-  final double width, height;
+  final double? width, height;
 
   const PersonCacheImage({
-    required this.imageUrl,
-    required this.width,
-    required this.height,
+    this.imageUrl,
+    this.width,
+    this.height,
     super.key,
   });
 
