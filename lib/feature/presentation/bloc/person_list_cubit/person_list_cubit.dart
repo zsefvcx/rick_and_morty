@@ -18,15 +18,18 @@ class PersonListCubit extends Cubit<PersonState> {
   void loadPerson() async {
     if (state is PersonLoading) return;
 
-    final currentStyate = state;
+    final currentState = state;
 
     var oldPerson = <PersonEntity>[];
 
-    if (currentStyate is PersonLoaded) {
-      oldPerson = currentStyate.personsList;
+    if (currentState is PersonLoaded) {
+      oldPerson = currentState.personsList;
     }
 
-    emit(PersonLoading(oldPersonsList: oldPerson, isFirstFetch: page == 1));
+    emit(PersonLoading(
+      oldPersonsList: oldPerson,
+      isFirstFetch: page == 1,
+    ));
 
     final failureOrPerson =
         await getAllPersons(params: PagePersonParams(page: page));

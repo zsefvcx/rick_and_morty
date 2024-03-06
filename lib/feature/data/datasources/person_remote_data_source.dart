@@ -14,7 +14,7 @@ abstract class PersonRemouteDataSource {
   ///Calls the https://rickandmortyapi.com/api/character/?name=rick endpoint.
   ///
   /// Throw a [ServerExeption] for all errors codes.
-  Future<List<PersonModel>> searchPerson(String query);
+  Future<List<PersonModel>> searchPerson(String query, int page);
 }
 
 class PersonRemouteDataSourceImpl implements PersonRemouteDataSource {
@@ -27,8 +27,12 @@ class PersonRemouteDataSourceImpl implements PersonRemouteDataSource {
       'https://rickandmortyapi.com/api/character/?page=$page');
 
   @override
-  Future<List<PersonModel>> searchPerson(String query) => _getPersonFromUrl(
-      'https://rickandmortyapi.com/api/character/?name=$query');
+  Future<List<PersonModel>> searchPerson(String query, int page) =>
+      _getPersonFromUrl(
+        (page == 1)
+            ? 'https://rickandmortyapi.com/api/character/?name=$query'
+            : 'https://rickandmortyapi.com/api/character/?page=$page&name=$query',
+      );
 
   Future<List<PersonModel>> _getPersonFromUrl(String url) async {
     dev.log(url, error: false, time: DateTime.now());

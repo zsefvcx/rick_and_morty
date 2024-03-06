@@ -28,7 +28,7 @@ class PersonsList extends StatelessWidget {
     setupScrollController(context);
 
     return BlocBuilder<PersonListCubit, PersonState>(
-      builder: (BuildContext context, PersonState state) {
+      builder: (context, state) {
         var persons = <PersonEntity>[];
         bool isLoading = false;
 

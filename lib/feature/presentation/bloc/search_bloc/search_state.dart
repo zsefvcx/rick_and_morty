@@ -11,8 +11,16 @@ class PersonSearchEmty extends PersonSearchState {
 }
 
 class PersonSearchLoading extends PersonSearchState {
+  final List<PersonEntity> oldPersonsList;
+  final bool isFirstFetch;
+
+  const PersonSearchLoading({
+    required this.oldPersonsList,
+    required this.isFirstFetch,
+  });
+
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [oldPersonsList, isFirstFetch];
 }
 
 class PersonSearchLoaded extends PersonSearchState {

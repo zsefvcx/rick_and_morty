@@ -26,9 +26,10 @@ class PersonRepositoryImpl extends PersonRepository {
   }
 
   @override
-  Future<(Failure?, List<PersonEntity>?)> searchPerson(String query) async {
+  Future<(Failure?, List<PersonEntity>?)> searchPerson(
+      String query, int page) async {
     return await _getPersons(
-      () => remouteDataSource.searchPerson(query),
+      () => remouteDataSource.searchPerson(query, page),
     );
   }
 
