@@ -1,6 +1,9 @@
 # rick_and_morty
 
-A new Flutter project.
+Сделано по туториалу из уроков: 
+[Stepik] Konstantin Kokorin - Изучаем Flutter
++ Домашняя работа оттуда.
+
 
 ## Getting Started
 
