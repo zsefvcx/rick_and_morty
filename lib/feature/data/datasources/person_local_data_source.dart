@@ -38,9 +38,8 @@ class PersonLocaleDataSourceImpl implements PersonLocaleDataSource {
 
   @override
   Future<List<PersonModel>> getLastPersonsFromCache() {
-    final List<String> jsonPersonList =
-        sharedPreferences.getStringList(cachedPersonList) ?? <String>[];
-    if (jsonPersonList.isNotEmpty) {
+    final jsonPersonList = sharedPreferences.getStringList(cachedPersonList);
+    if (jsonPersonList != null) {
       return Future.value(jsonPersonList
           .map((e) => PersonModel.fromJson(json.decode(e)))
           .toList());
