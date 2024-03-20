@@ -32,22 +32,27 @@ class PersonsList extends StatelessWidget {
         var persons = <PersonEntity>[];
         bool isLoading = false;
 
-        if (state is PersonLoading && state.isFirstFetch) {
-          return const _LoadingIndicator();
-        } else if (state is PersonLoading) {
-          persons = state.oldPersonsList;
-          isLoading = true;
-        } else if (state is PersonLoaded) {
-          persons = state.personsList;
-        } else if (state is PersonError) {
-          return Text(
-            state.message,
-            style: const TextStyle(
-              fontSize: 25,
-              color: Colors.white,
-            ),
-          );
+        switch (state) {
+          case PersonLoading state:
+            if(state.isFirstFetch){
+              return const _LoadingIndicator();
+            }
+            persons = state.oldPersonsList;
+            isLoading = true;
+          case PersonLoaded state:
+            persons = state.personsList;
+          case PersonEmpty _:
+            return Container();
+          case PersonError state:
+            return Text(
+              state.message,
+              style: const TextStyle(
+                fontSize: 25,
+                color: Colors.white,
+              ),
+            );
         }
+
         return ListView.separated(
           controller: scrollController,
           itemBuilder: (context, index) {

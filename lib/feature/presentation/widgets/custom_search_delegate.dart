@@ -78,22 +78,27 @@ class CustomSearchDelegate extends SearchDelegate {
         var persons = <PersonEntity>[];
         bool isLoading = false;
 
-        if (state is PersonSearchLoading && state.isFirstFetch) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        } else if (state is PersonSearchLoading) {
-          persons = state.oldPersonsList;
-          isLoading = true;
-        } else if (state is PersonSearchLoaded) {
-          persons = state.persons;
-          if (persons.isEmpty) {
-            return const _ShowErrorText(
-                errorMassage: 'No Characters with that name found');
-          }
-        } else if (state is PersonSearchError) {
+        switch(state){
+          case PersonSearchLoading state:
+            if (state.isFirstFetch){
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            persons = state.oldPersonsList;
+            isLoading = true;
+          case PersonSearchEmty _:
+            return Container();
+          case PersonSearchLoaded state:
+            persons = state.persons;
+            if (persons.isEmpty) {
+              return const _ShowErrorText(
+                  errorMassage: 'No Characters with that name found');
+            }
+          case PersonSearchError state:
           return _ShowErrorText(errorMassage: state.massage);
         }
+
         return ListView.separated(
           controller: scrollController,
           itemBuilder: (context, index) {

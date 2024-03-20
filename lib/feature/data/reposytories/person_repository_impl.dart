@@ -40,14 +40,14 @@ class PersonRepositoryImpl extends PersonRepository {
         final remotePerson = await getPersons();
         localDataSource.personToCache(remotePerson);
         return (null, remotePerson);
-      } on ServerExeption {
+      } on ServerException {
         return (ServerFailure(), null);
       }
     } else {
       try {
         final locationPerson = await localDataSource.getLastPersonsFromCache();
         return (null, locationPerson);
-      } on CacheExeption {
+      } on CacheException {
         return (CacheFailure(), null);
       }
     }

@@ -44,7 +44,7 @@ class PersonRemouteDataSourceImpl implements PersonRemouteDataSource {
           .map((e) => PersonModel.fromJson(e))
           .toList();
     } else {
-      throw ServerExeption();
+      throw ServerException();
     }
   }
 }

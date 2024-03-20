@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:rick_and_morty/feature/domain/entities/person_entity.dart';
 
-abstract class PersonSearchState extends Equatable {
+sealed class PersonSearchState extends Equatable {
   const PersonSearchState();
 }
 

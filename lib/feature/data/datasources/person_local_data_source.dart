@@ -32,7 +32,7 @@ class PersonLocaleDataSourceImpl implements PersonLocaleDataSource {
       dev.log('Person to write Cache: ${jsonPersonList.length}',
           error: false, time: DateTime.now());
     } else {
-      throw CacheExeption();
+      throw CacheException();
     }
   }
 
@@ -44,7 +44,7 @@ class PersonLocaleDataSourceImpl implements PersonLocaleDataSource {
           .map((e) => PersonModel.fromJson(json.decode(e)))
           .toList());
     } else {
-      throw CacheExeption();
+      throw CacheException();
     }
   }
 }
